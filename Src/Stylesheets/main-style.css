@@ -1,0 +1,181 @@
+/* 
+    The Castle's Great Hall
+*/
+
+/* Fonts */
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../Assets/Fonts/Montserrat/static/Montserrat-Regular.woff2);
+}
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url(../Assets/Fonts/Montserrat/static/Montserrat-Light.woff2);
+}
+
+@font-face {
+    font-family: 'Montserrat SB';
+    src: url(../Assets/Fonts/Montserrat/static/Montserrat-SemiBold.woff2);
+}
+
+@font-face {
+    font-family: 'Montserrat EB';
+    src: url(../Assets/Fonts/Montserrat/static/Montserrat-ExtraBold.woff2);
+}
+
+@font-face {
+    font-family: 'Montserrat Itallics';
+    src: url(../Assets/Fonts/Montserrat/static/Montserrat-Italic.woff2);
+}
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url(../Assets/Fonts/Dancing_Script/static/DancingScript-Regular.woff2);
+}
+
+/* Root Variables */
+:root {
+    /* Root Theme Colors */
+    --u-scrl: var(--u-scrl-d);
+    --crsr: var(--crsr-d);
+    --bg: var(--bg-d);
+    --ft-c: var(--ft-c-d);
+    --ft-c-hv: var(--ft-c-hv-d);
+    --hdr: var(--hdr-d);
+    --p-nav: var(--p-nav-d);
+    --sec1: var(--sec1-d);
+    --btn: var(--btn-d);
+    --btn-hv: var(--btn-hv-d);
+    --ft-btn-hv: var(--ft-btn-hv-d);
+    --brdr: var(--brdr-d);
+    --act: var(--act-d);
+    --shw: var(--shw-d);
+    --skls-tbs: var(--skls-tbs-d);
+    /* Light Theme */
+    --u-scrl-l: #b1b1b1;
+    --crsr-l: #000000;
+    --bg-l: #ffffff;
+    --ft-c-l: #4f4f4f;
+    --ft-c-hv-l: #090909;
+    --hdr-l: #ffeec6;
+    --p-nav-l: #cacaca90;
+    --sec1-l: #FFF;
+    --btn-l: #ffffff8f;
+    --btn-hv-l: #000;
+    --ft-btn-hv-l: #ffffff;
+    --brdr-l: #b5b4b4;
+    --act-l: #3d3d3d;
+    --shw-l: #0000006b;
+    --skls-tbs-l: #dcdcdc63;
+    /* Dark Theme */
+    --u-scrl-d: #444444;
+    --crsr-d: #fefefe;
+    --bg-d: #0f0f0f;
+    --ft-c-d: #d6d6d6;
+    --ft-c-hv-d: #ffffff;
+    --hdr-d: #020202;
+    --p-nav-d: #38383890;
+    --sec1-d: #000000;
+    --btn-d: #222222;
+    --btn-hv-d: #fff;
+    --ft-btn-hv-d: #000000;
+    --brdr-d: #545454;
+    --act-d: #cdcdcd;
+    --shw-d: #ffffff39;
+    --skls-tbs-d: #36363663;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* cursor: none; */
+}
+
+html,
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* cursor: none; */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--ft-c);
+    width: 100%;
+    font-family: 'Montserrat';
+}
+
+#ldr {
+    background-color: var(--bg);
+    height: 100vh;
+    width: 100vw;
+    /* "UNCOMMENT IT " TO STOP THE :::LOADER::: */
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#ldr-cnt {
+    background-color: var(--bg);
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+#ldr-mn-txt {
+    /* background-color: grey; */
+    height: 42.5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+}
+
+#ldr-mn-txt h1 {
+    color: var(--ft-c-hv);
+    font-family: 'Montserrat EB';
+    font-size: 5rem;
+    text-align: center;
+    position: absolute;
+}
+
+#ldr-mn-1 {
+    display: none;
+}
+
+#ldr-mn-2 {
+    display: none;
+}
+
+#ldr-mn-3 {
+    display: none;
+}
+
+#ldr-sb-txt {
+    /* background-color: lightslategray; */
+    height: 42.5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+#ldr-sb-txt p {
+    color: var(--ft-c-hv);
+    font-size: 1.2rem;
+}
+
+#rt {
+    background-color: white;
+    height: 100vh;
+    /* "COMMENT IT" TO STOP THE :::LOADER::: */
+    display: none;
+}

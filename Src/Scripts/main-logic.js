@@ -7,7 +7,8 @@ let loader = document.querySelector("#ldr");
 let loaderMainText1 = document.querySelector("#ldr-mn-1");
 let loaderMainText2 = document.querySelector("#ldr-mn-2");
 let loaderMainText3 = document.querySelector("#ldr-mn-3");
-let loaderSubText = document.querySelector("#ldr-sb-txt");
+let loaderSubText = document.querySelector("#ldr-sb-txt p");
+let rootContainer = document.querySelector("#rt");
 
 
 // Operational Center
@@ -53,18 +54,64 @@ function loaderAnimation() {
 
     let loaderMainText3Spans = document.querySelectorAll(".mn-txt-3");
 
-    let mainTextTimeline = gsap.timeline();
+    let mainTextTimeline = gsap.timeline({
+        ease: 'power1.inOut'
+    });
     mainTextTimeline.to(loader, {
         opacity: 1,
         duration: 2
     });
-
-    loaderMainText3Spans.forEach((element, index) => {
-        gsap.to(element, {
-            display: "flex",
-            opacity: 1,
-        });
+    loaderMainText1Spans.forEach((element, index) => {
+        mainTextTimeline.to(element, {
+            opacity: 1
+        }, index * 0.3);
     });
+    loaderMainText1Spans.forEach((element, index) => {
+        mainTextTimeline.to(element, {
+            opacity: 0,
+            delay: 2
+        }, index * 0.6);
+    });
+    loaderMainText2Spans.forEach((element, index) => {
+        mainTextTimeline.to(element, {
+            opacity: 1,
+            delay: 4
+        }, index * 0.3);
+    });
+    loaderMainText2Spans.forEach((element, index) => {
+        mainTextTimeline.to(element, {
+            opacity: 0,
+            delay: 8
+        }, index * 0.3);
+    });
+    loaderMainText3Spans.forEach((element, index) => {
+        mainTextTimeline.to(element, {
+            opacity: 1,
+            delay: 12
+        }, index * 0.3);
+    });
+    loaderMainText3Spans.forEach((element, index) => {
+        mainTextTimeline.to(element, {
+            opacity: 0,
+            delay: 16
+        }, index * 0.3);
+    });
+    mainTextTimeline.to(loader, {
+        opacity: 0,
+        duration: 2
+    });
+    mainTextTimeline.to(loader, {
+        display: "none"
+    });
+    mainTextTimeline.to(rootContainer, {
+        display: "flex"
+    });
+    mainTextTimeline.to(rootContainer, {
+        opacity: 1
+    });
+
+
+
 }
 
 function theLoader() {

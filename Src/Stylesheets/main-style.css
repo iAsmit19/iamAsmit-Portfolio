@@ -183,16 +183,20 @@ body {
     align-items: start;
 }
 
+.sb-txt {
+    background-color: black;
+    opacity: 1;
+}
+
 #ldr-sb-txt p {
     color: var(--ft-c-hv);
-    font-size: 1.2rem;
-    font-family: 'Dancing Script';
+    font-size: 1rem;
+    font-family: 'Montserrat SB';
 }
 
 #rt {
-    background-color: white;
+    background-color: var(--bg);
     height: 100vh;
     /* "COMMENT IT" TO STOP THE :::LOADER::: */
-    display: none;
     opacity: 0;
 }

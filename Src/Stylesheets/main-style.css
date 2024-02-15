@@ -233,9 +233,7 @@ body {
 
 #rt {
     background-color: var(--bg);
-    height: 200vh;
-    /* "COMMENT IT" TO STOP THE :::LOADER::: */
-    /* opacity: 0; */
+    height: 100vh;
 }
 
 @media (max-width: 1000px) {
@@ -250,4 +248,17 @@ body {
     .s-scr-dis {
         display: flex;
     }
+}
+
+.uc-dis {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#uc-dis-anm {
+    height: 10vh;
 }

@@ -188,6 +188,7 @@ function theExecutioner() {
     // if (MEDIAQUERY.matches) {
     //     theLoader();
     // }
+    // COMMENT TO STOP THE :::LOADER:::
     theLoader();
 }
 

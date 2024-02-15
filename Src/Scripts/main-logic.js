@@ -54,10 +54,6 @@ function loaderAnimation() {
   let mainTextTimeline = gsap.timeline({
     ease: "power1.inOut",
   });
-  mainTextTimeline.to(body, {
-    height: "100vh",
-    overflow: "hidden",
-  });
   mainTextTimeline.to(loader, {
     opacity: 1,
     duration: 2,
@@ -156,7 +152,7 @@ function loaderAnimation() {
       element,
       {
         color: "var(--ft-c)",
-        ease: 'power2.inOut',
+        ease: "power2.inOut",
         textShadow: "0px 0px 1px var(--act)",
         opacity: 0.5,
       },
@@ -168,7 +164,7 @@ function loaderAnimation() {
       element,
       {
         color: "var(--ft-c-hv)",
-        ease: 'power2.inOut',
+        ease: "power2.inOut",
         opacity: 1,
         textShadow: "none",
         delay: 2,
@@ -182,8 +178,17 @@ function theLoader() {
   loaderAnimation();
 }
 
+// window.addEventListener('resize', () => {
+//     theLoader();
+// });
+
+// const MEDIAQUERY = window.matchMedia("(min-width: 1000px)");
+
 function theExecutioner() {
-  theLoader();
+    // if (MEDIAQUERY.matches) {
+    //     theLoader();
+    // }
+    theLoader();
 }
 
 theExecutioner();

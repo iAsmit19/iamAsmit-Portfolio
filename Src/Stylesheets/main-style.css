@@ -52,7 +52,7 @@
     --shw: var(--shw-d);
     --skls-tbs: var(--skls-tbs-d);
     /* Light Theme */
-    --u-scrl-l: #b1b1b1;
+    --u-scrl-l: #c4c4c4;
     --crsr-l: #000000;
     --bg-l: #ffffff;
     --ft-c-l: #4f4f4f;
@@ -68,7 +68,7 @@
     --shw-l: #0000006b;
     --skls-tbs-l: #dcdcdc63;
     /* Dark Theme */
-    --u-scrl-d: #444444;
+    --u-scrl-d: #323232;
     --crsr-d: #fefefe;
     --bg-d: #000000;
     --ft-c-d: #d6d6d6;
@@ -102,17 +102,48 @@ body {
 body {
     background-color: var(--bg);
     color: var(--ft-c);
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     font-family: 'Montserrat';
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    /* border-radius: 10px; */
+    background-color: var(--u-scrl);
+}
+
+.s-scr-dis {
+    color: var(--ft-c-hv);
+    height: 90vh;
+    width: 99vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.s-scr-dis h1 {
+    font-size: 5vw;
+    text-align: center;
+}
+.s-scr-dis p {
+    font-size: 2.5vw;
+    text-align: center;
 }
 
 #ldr {
     background-color: var(--bg);
     height: 100vh;
     width: 100vw;
-    /* "UNCOMMENT IT " TO STOP THE :::LOADER::: */
     opacity: 0;
     display: flex;
+    /* " UNCOMMENT IT " TO STOP THE :::LOADER::: */
+    /* display: none; */
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -138,7 +169,6 @@ body {
     align-items: end;
     position: relative;
 }
-
 #ldr-mn-txt h1 {
     color: var(--ft-c-hv);
     font-family: 'Montserrat EB';
@@ -181,22 +211,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: start;
+    white-space: nowrap;
 }
-
-.sb-txt {
-    background-color: black;
-    opacity: 1;
-}
-
 #ldr-sb-txt p {
     color: var(--ft-c-hv);
     font-size: 1rem;
     font-family: 'Montserrat SB';
 }
 
+
+.sb-txt {
+    opacity: 1;
+}
+
 #rt {
     background-color: var(--bg);
-    height: 100vh;
+    height: 200vh;
     /* "COMMENT IT" TO STOP THE :::LOADER::: */
-    opacity: 0;
+    /* opacity: 0; */
+}
+
+@media (max-width: 1000px) {
+    #ldr {
+        display: none;
+    }
+
+    #rt {
+        display: none;
+    }
+
+    .s-scr-dis {
+        display: flex;
+    }
 }

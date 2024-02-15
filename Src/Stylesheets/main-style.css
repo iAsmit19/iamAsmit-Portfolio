@@ -131,8 +131,8 @@ body {
 #s-scr-anm {
     height: auto;
     width: 50vw;
-    filter: blur(25px);
-    position: absolute;
+    filter: blur(10px);
+    /* position: absolute; */
 }
 .s-scr-dis h1 {
     font-size: 5vw;

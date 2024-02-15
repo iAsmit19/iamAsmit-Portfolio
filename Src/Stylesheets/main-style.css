@@ -125,7 +125,14 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
     overflow: hidden;
+}
+#s-scr-anm {
+    height: auto;
+    width: 50vw;
+    filter: blur(25px);
+    position: absolute;
 }
 .s-scr-dis h1 {
     font-size: 5vw;

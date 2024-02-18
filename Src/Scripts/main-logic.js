@@ -2,7 +2,33 @@
     The Castle's Towers
 */
 
-// DECLARATION CENTER
+let cursor = document.querySelector("#crsr");
+let headerNavElements = document.querySelectorAll(".nv-els");
+
+function theCursor() {
+  document.addEventListener("mousemove", (event) => {
+    gsap.to(cursor, {
+      display: "block"
+    });
+    gsap.to(cursor, {
+      top: event.pageY + "px",
+      left: event.pageX + "px"
+    });
+  });
+  headerNavElements.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      gsap.to(cursor, {
+        scale: 0.5
+      });
+    });
+    element.addEventListener("mouseleave", () => {
+      gsap.to(cursor, {
+        scale: 1
+      });
+    });
+  });
+}
+
 let body = document.querySelector("body");
 let loader = document.querySelector("#ldr");
 let loaderMainText1 = document.querySelector("#ldr-mn-1");
@@ -11,7 +37,6 @@ let loaderMainText3 = document.querySelector("#ldr-mn-3");
 let loaderSubText = document.querySelector("#ldr-sb-txt p");
 let rootContainer = document.querySelector("#rt");
 
-// Operational Center
 function loaderAnimation() {
   let mainText1 = "Design";
   let mainText1Split = mainText1.split("");
@@ -178,18 +203,70 @@ function theLoader() {
   loaderAnimation();
 }
 
-// window.addEventListener('resize', () => {
-//     theLoader();
-// });
+let smallHeaderMenu = document.querySelector("#s-hdr-menu");
+let smallHeaderMenuClose = document.querySelector("#hdr-svg-close-cnt");
+let smallHeaderMenuToggle = false;
+let smallHeaderNavbar = document.querySelector("#s-hdr-s-nvb");
+let smallHeaderElements = document.querySelectorAll(".s-nv-els");
 
-// const MEDIAQUERY = window.matchMedia("(min-width: 1000px)");
+function smallHeader() {
+  smallHeaderMenu.addEventListener("click", () => {
+    let timeline = gsap.timeline();
+    gsap.to(smallHeaderNavbar, {
+      display: "flex",
+    });
+    gsap.to(smallHeaderNavbar, {
+      opacity: 1,
+      width: "100%",
+      duration: 0.1,
+    });
+    gsap.to(body, {
+      height: "100vh",
+      overflowX: "hidden",
+    });
+    smallHeaderElements.forEach((element, index) => {
+      gsap.to(element, {
+        opacity: 1
+        // duration: 0.5
+      }, index * 1.5);
+    });
+  });
+
+  smallHeaderMenuClose.addEventListener("click", () => {
+    let timeline = gsap.timeline();
+    timeline.to(smallHeaderNavbar, {
+      opacity: 0,
+      width: "0%",
+      duration: 0.1,
+    });
+    timeline.to(smallHeaderNavbar, {
+      display: "none",
+    });
+    timeline.to(body, {
+      height: "auto",
+      overflowX: "auto",
+    });
+    smallHeaderElements.forEach((element, index) => {
+      gsap.to(element, {
+        opacity: 0
+      }, index * 1.5);
+    });
+  });
+}
+
+function theHeader() {
+  smallHeader();
+}
+
+function theHeroSection() {
+}
 
 function theExecutioner() {
-    // if (MEDIAQUERY.matches) {
-    //     theLoader();
-    // }
-    // COMMENT TO STOP THE :::LOADER:::
-    theLoader();
+  theCursor();
+  theHeader();
+  // COMMENT TO STOP THE :::LOADER:::
+  // theLoader();
+  theHeroSection();
 }
 
 theExecutioner();

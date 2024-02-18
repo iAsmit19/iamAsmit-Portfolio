@@ -4,261 +4,618 @@
 
 /* Fonts */
 @font-face {
-    font-family: 'Montserrat';
-    src: url(../Assets/Fonts/Montserrat/static/Montserrat-Regular.woff2);
+  font-family: "Montserrat";
+  src: url(../Assets/Fonts/Montserrat/static/Montserrat-Regular.woff2);
 }
 
 @font-face {
-    font-family: 'Montserrat Light';
-    src: url(../Assets/Fonts/Montserrat/static/Montserrat-Light.woff2);
+  font-family: "Montserrat Light";
+  src: url(../Assets/Fonts/Montserrat/static/Montserrat-Light.woff2);
 }
 
 @font-face {
-    font-family: 'Montserrat SB';
-    src: url(../Assets/Fonts/Montserrat/static/Montserrat-SemiBold.woff2);
+  font-family: "Montserrat SB";
+  src: url(../Assets/Fonts/Montserrat/static/Montserrat-SemiBold.woff2);
 }
 
 @font-face {
-    font-family: 'Montserrat EB';
-    src: url(../Assets/Fonts/Montserrat/static/Montserrat-ExtraBold.woff2);
+  font-family: "Montserrat EB";
+  src: url(../Assets/Fonts/Montserrat/static/Montserrat-ExtraBold.woff2);
 }
 
 @font-face {
-    font-family: 'Montserrat Itallics';
-    src: url(../Assets/Fonts/Montserrat/static/Montserrat-Italic.woff2);
+  font-family: "Montserrat Itallics";
+  src: url(../Assets/Fonts/Montserrat/static/Montserrat-Italic.woff2);
 }
 
 @font-face {
-    font-family: 'Dancing Script';
-    src: url(../Assets/Fonts/Dancing_Script/static/DancingScript-Regular.woff2);
+  font-family: "Dancing Script";
+  src: url(../Assets/Fonts/Dancing_Script/static/DancingScript-Regular.woff2);
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url(../Assets/Fonts/Comfortaa/Comfortaa-Regular.woff2);
+}
+
+@font-face {
+  font-family: "Comfortaa SB";
+  src: url(../Assets/Fonts/Comfortaa/Comfortaa-SemiBold.woff2);
 }
 
 /* Root Variables */
 :root {
-    /* Root Theme Colors */
-    --u-scrl: var(--u-scrl-d);
-    --crsr: var(--crsr-d);
-    --bg: var(--bg-d);
-    --ft-c: var(--ft-c-d);
-    --ft-c-hv: var(--ft-c-hv-d);
-    --hdr: var(--hdr-d);
-    --p-nav: var(--p-nav-d);
-    --sec1: var(--sec1-d);
-    --btn: var(--btn-d);
-    --btn-hv: var(--btn-hv-d);
-    --ft-btn-hv: var(--ft-btn-hv-d);
-    --brdr: var(--brdr-d);
-    --act: var(--act-d);
-    --shw: var(--shw-d);
-    --skls-tbs: var(--skls-tbs-d);
-    /* Light Theme */
-    --u-scrl-l: #c4c4c4;
-    --crsr-l: #000000;
-    --bg-l: #ffffff;
-    --ft-c-l: #4f4f4f;
-    --ft-c-hv-l: #090909;
-    --hdr-l: #ffeec6;
-    --p-nav-l: #cacaca90;
-    --sec1-l: #FFF;
-    --btn-l: #ffffff8f;
-    --btn-hv-l: #000;
-    --ft-btn-hv-l: #ffffff;
-    --brdr-l: #b5b4b4;
-    --act-l: #3d3d3d;
-    --shw-l: #0000006b;
-    --skls-tbs-l: #dcdcdc63;
-    /* Dark Theme */
-    --u-scrl-d: #323232;
-    --crsr-d: #fefefe;
-    --bg-d: #000000;
-    --ft-c-d: #d6d6d6;
-    --ft-c-hv-d: #ffffff;
-    --hdr-d: #020202;
-    --p-nav-d: #38383890;
-    --sec1-d: #000000;
-    --btn-d: #222222;
-    --btn-hv-d: #fff;
-    --ft-btn-hv-d: #000000;
-    --brdr-d: #545454;
-    --act-d: #cdcdcd;
-    --shw-d: #ffffff39;
-    --skls-tbs-d: #36363663;
+  /* Root Theme Colors */
+  --u-scrl: var(--u-scrl-d);
+  --crsr: var(--crsr-d);
+  --slct: var(--slct-d);
+  --slct-c: var(--slct-c-d);
+  --bg: var(--bg-d);
+  --nv-c: var(--nv-c-d);
+  --nv-c-hv: var(--nv-c-hv-d);
+  --ft-c: var(--ft-c-d);
+  --ft-c-hv: var(--ft-c-hv-d);
+  --hdr: var(--hdr-d);
+  --s-hdr: var(--s-hdr-d);
+  --p-nav: var(--p-nav-d);
+  --sec1: var(--sec1-d);
+  --btn: var(--btn-d);
+  --btn-hv: var(--btn-hv-d);
+  --ft-btn-hv: var(--ft-btn-hv-d);
+  --brdr: var(--brdr-d);
+  --act: var(--act-d);
+  --shw: var(--shw-d);
+  --skls-tbs: var(--skls-tbs-d);
+  /* Dark Theme */
+  --u-scrl-d: #323232;
+  --crsr-d: #25252541;
+  --slct-d: #ffffff;
+  --slct-c-d: #000000;
+  --bg-d: #000000;
+  --nv-c-d: #c1c1c1;
+  --nv-c-hv-d: #ffffff;
+  --ft-c-d: #d6d6d6;
+  --ft-c-hv-d: #ffffff;
+  --hdr-d: #232323b8;
+  --s-hdr-d: #121212fc;
+  --p-nav-d: #38383890;
+  --sec1-d: #000000;
+  --btn-d: #222222;
+  --btn-hv-d: #fff;
+  --ft-btn-hv-d: #000000;
+  --brdr-d: #545454;
+  --act-d: #cdcdcd;
+  --shw-d: #ffffff39;
+  --skls-tbs-d: #36363663;
+  /* Light Theme */
+  --u-scrl-l: #c4c4c4;
+  --crsr-l: #000000;
+  --bg-l: #ffffff;
+  --nv-c-l: #424242;
+  --nv-c-hv-l: #000000;
+  --ft-c-l: #4f4f4f;
+  --ft-c-hv-l: #090909;
+  --hdr-l: #ffffff8c;
+  --s-hdr-l: ;
+  --p-nav-l: #cacaca90;
+  --sec1-l: #fff;
+  --btn-l: #ffffff8f;
+  --btn-hv-l: #000;
+  --ft-btn-hv-l: #ffffff;
+  --brdr-l: #b5b4b4;
+  --act-l: #3d3d3d;
+  --shw-l: #0000006b;
+  --skls-tbs-l: #dcdcdc63;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* cursor: none; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+  /* transition: all ease-in-out 200ms; */
 }
 
 html,
 body {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    /* cursor: none; */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  /* cursor: none; */
+  transition: all ease-in-out 200ms;
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--ft-c);
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Montserrat';
-    overflow: hidden;
+  background-color: var(--bg);
+  color: var(--ft-c);
+  /* COMMENT IT TO STOP THE :::LOADER::: */
+  /* height: 100vh; */
+  font-family: "Montserrat";
+  position: relative;
+  overflow: hidden;
+  transition: all ease-in-out 200ms;
 }
 
 ::-webkit-scrollbar {
-    width: 7px;
+  width: 7px;
 }
 ::-webkit-scrollbar-thumb {
-    /* border-radius: 10px; */
-    background-color: var(--u-scrl);
+  /* border-radius: 10px; */
+  background-color: var(--u-scrl);
+}
+
+::selection {
+  background-color: var(--slct);
+  color: var(--slct-c);
+}
+
+#crsr {
+  border-radius: 100%;
+  border: 2px solid var(--act);
+  background-color: var(--crsr);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3vh;
+  width: 3vh;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
 }
 
 .s-scr-dis {
-    color: var(--ft-c-hv);
-    height: 90vh;
-    width: 99vw;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  color: var(--ft-c-hv);
+  height: 90vh;
+  width: 99vw;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-#s-scr-anm {
-    height: auto;
-    width: 50vw;
-    filter: blur(10px);
-    /* position: absolute; */
-}
+
 .s-scr-dis h1 {
-    font-size: 5vw;
-    text-align: center;
+  font-size: 5vw;
+  text-align: center;
 }
+
 .s-scr-dis p {
-    font-size: 2.5vw;
-    text-align: center;
+  font-size: 2.5vw;
+  text-align: center;
 }
 
 #ldr {
-    background-color: var(--bg);
-    height: 100vh;
-    width: 100vw;
-    opacity: 0;
-    display: flex;
-    /* " UNCOMMENT IT " TO STOP THE :::LOADER::: */
-    /* display: none; */
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  background-color: var(--bg);
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  display: flex;
+  /* " UNCOMMENT IT " TO STOP THE :::LOADER::: */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 #ldr-cnt {
-    background-color: var(--bg);
-    height: 50%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
+  background-color: var(--bg);
+  /* background-color: white; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
 }
 
 #ldr-mn-txt {
-    /* background-color: grey; */
-    height: 42.5%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    position: relative;
+  /* background-color: grey; */
+  height: 42.5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
 }
 #ldr-mn-txt h1 {
-    color: var(--ft-c-hv);
-    font-family: 'Montserrat EB';
-    font-size: 5rem;
-    text-align: center;
-    position: absolute;
+  color: var(--ft-c-hv);
+  font-family: "Montserrat EB";
+  font-size: 5rem;
+  text-align: center;
+  position: absolute;
 }
 
 #ldr-mn-1 {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #ldr-mn-2 {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #ldr-mn-3 {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .mn-txt-1 {
-    opacity: 0;
+  opacity: 0;
 }
 
 .mn-txt-2 {
-    opacity: 0;
+  opacity: 0;
 }
 
 .mn-txt-3 {
-    opacity: 0;
+  opacity: 0;
 }
 
 #ldr-sb-txt {
-    /* background-color: lightslategray; */
-    height: 42.5%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    white-space: nowrap;
+  /* background-color: lightslategray; */
+  height: 42.5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  white-space: nowrap;
 }
 #ldr-sb-txt p {
-    color: var(--ft-c-hv);
-    font-size: 1rem;
-    font-family: 'Montserrat SB';
+  color: var(--ft-c-hv);
+  font-size: 1rem;
+  font-family: "Montserrat SB";
 }
 
-
 .sb-txt {
-    opacity: 1;
+  opacity: 1;
 }
 
 #rt {
-    background-color: var(--bg);
-    height: 100vh;
-}
-
-@media (max-width: 1000px) {
-    #ldr {
-        display: none;
-    }
-
-    #rt {
-        display: none;
-    }
-
-    .s-scr-dis {
-        display: flex;
-    }
+  background-color: var(--bg);
 }
 
 .uc-dis {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #uc-dis-anm {
-    height: 10vh;
+  height: 10vh;
+}
+
+#hdr-nv {
+  /* background-color: var(--hdr); */
+  height: 7vh;
+  width: 99vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* overflow: hidden; */
+  user-select: none;
+}
+
+#hdr-nv-cnt {
+  /* background-color: white; */
+  /* REMIVE THIS ON CLICK OF THE SVG */
+  -webkit-backdrop-filter: blur(60px);
+  backdrop-filter: blur(60px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-inline: 2vw; */
+  position: relative;
+  /* overflow: hidden; */
+}
+
+#hdr-lg {
+  /* background-color: grey; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat EB";
+  font-size: 1rem;
+  padding-inline: 5vw;
+}
+
+#hdr-nvb {
+  height: 100%;
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-inline: 5vw;
+}
+
+.nv-els {
+  color: var(--nv-c);
+  text-decoration: none;
+  font-family: "Montserrat SB";
+  font-size: 1rem;
+  text-align: center;
+  transition: all ease-in-out 200ms;
+}
+
+.nv-els:hover {
+  color: var(--nv-c-hv);
+  /* opacity: 0; */
+  transition: all ease-in-out 200ms;
+}
+
+#s-hdr-nv-cnt {
+  /* background-color: rgb(44, 44, 44); */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 5vw;
+  display: none;
+  position: relative;
+}
+
+#s-hdr-lg {
+  font-family: "Montserrat EB";
+}
+
+#s-hdr-svg {
+  height: 24px;
+  width: 24px;
+}
+
+#s-hdr-s-nvb {
+  height: 100vh;
+  width: 0%;
+  background-color: var(--s-hdr);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  display: none;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  gap: 7%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+#s-hdr-s-nvb a {
+  /* background-color: grey; */
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+#hdr-svg-close-cnt {
+  /* background-color: grey; */
+  color: var(--ft-c-hv);
+  height: 7%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-inline: 5vw;
+}
+
+#s-hdr-svg-close {
+  /* background-color: black; */
+  /* align-self: flex-end; */
+  height: 30px;
+  width: 30px;
+}
+
+#hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2rem;
+  text-align: center;
+}
+
+/* 4k Screens */
+@media (min-width: 1441px) {
+  #ldr-mn-txt h1 {
+    font-size: 6rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 1.2rem;
+  }
+
+  #hdr-lg {
+    font-size: 1.1rem;
+  }
+
+  .nv-els {
+    font-size: 1.1rem;
+  }
+}
+
+/* Laptop Screens (Large) */
+@media (max-width: 1440px) and (min-width: 1023px) {
+  #ldr-mn-txt h1 {
+    font-size: 5rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 1rem;
+  }
+
+  .nv-els {
+    font-size: 1rem;
+  }
+}
+
+/* Laptop Screens */
+@media (max-width: 1024px) and (min-width: 767px) {
+  #ldr-mn-txt h1 {
+    font-size: 4.8rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 0.9rem;
+  }
+
+  .nv-els {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet Screens */
+@media (max-width: 768px) and (min-width: 620px) {
+  #ldr-mn-txt h1 {
+    font-size: 3.5rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 0.6rem;
+  }
+
+  .nv-els {
+    font-size: 0.9rem;
+  }
+
+  /* #hdr-nvb {
+    display: none;
+  }
+
+  #hdr-lg {
+    display: none;
+  }
+
+  #s-hdr-nv-cnt {
+    display: flex;
+  }  */
+}
+
+/* Tablet Screens (Small) */
+@media (max-width: 619px) and (min-width: 424px) {
+  #crsr {
+    opacity: 0;
+  }
+
+  #ldr-mn-txt h1 {
+    font-size: 3.5rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 0.6rem;
+  }
+
+  .nv-els {
+    font-size: 0.9rem;
+  }
+
+  #hdr-nvb {
+    display: none;
+  }
+
+  #hdr-lg {
+    display: none;
+  }
+
+  #s-hdr-nv-cnt {
+    display: flex;
+  }
+}
+
+/* Mobile Screens (Large) */
+@media (max-width: 425px) and (min-width: 374px) {
+  #crsr {
+    opacity: 0;
+  }
+
+  #ldr-mn-txt h1 {
+    font-size: 2.8rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 0.7rem;
+  }
+
+  #hdr-nvb {
+    display: none;
+  }
+
+  #hdr-lg {
+    display: none;
+  }
+
+  #s-hdr-nv-cnt {
+    display: flex;
+  }
+}
+
+/* Mobile Screens (Medium) */
+@media (max-width: 375px) and (min-width: 320px) {
+  #crsr {
+    opacity: 0;
+  }
+
+  #ldr-mn-txt h1 {
+    font-size: 2.2rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 0.8rem;
+  }
+
+  #hdr-nvb {
+    display: none;
+  }
+
+  #hdr-lg {
+    display: none;
+  }
+
+  #s-hdr-nv-cnt {
+    display: flex;
+  }
+}
+
+/* Mobile Screens (Small) */
+@media (max-width: 319px) {
+  #crsr {
+    opacity: 0;
+  }
+
+  #ldr-mn-txt h1 {
+    font-size: 1.5rem;
+  }
+
+  #ldr-sb-txt p {
+    font-size: 0.5rem;
+  }
+
+  #hdr-nvb {
+    display: none;
+  }
+
+  #hdr-lg {
+    display: none;
+  }
+
+  #s-hdr-nv-cnt {
+    display: flex;
+  }
 }

@@ -52,6 +52,7 @@
      -->
 
   <body>
+    <div id="crsr"></div>
     <div class="s-scr-dis">
       <dotlottie-player
         id="s-scr-anm"
@@ -80,19 +81,69 @@
       </div>
     </div>
     <div id="rt">
-      <div class="uc-dis">
-        <dotlottie-player
-          id="uc-dis-anm"
-          src="https://lottie.host/0e3c46b3-a8b6-4e63-aab4-705cb3348b12/YBBT9yxNWF.lottie"
-          background="transparent"
-          speed="1"
-          loop
-          autoplay
-        ></dotlottie-player>
-        <h1>UNDER CONSTRUCTION</h1>
-        <p>
-          Section is currently under construction Visit again soon for the latest additions!
-        </p>
+      <div id="hdr-nv">
+        <div id="hdr-nv-cnt">
+          <div id="hdr-lg">
+            <p>iamAsmit</p>
+          </div>
+          <nav id="hdr-nvb">
+            <a href="#home" class="nv-els" id="nv-el-hme"> Home </a>
+            <a href="#about-me" class="nv-els" id="nv-el-abt"> About Me </a>
+            <a href="#projects" class="nv-els" id="nv-el-prj"> Projects </a>
+            <a href="#contact-me" class="nv-els" id="nv-el-ctc"> Contact Me </a>
+          </nav>
+          <div id="s-hdr-nv-cnt">
+            <div id="s-hdr-lg">
+              <p>iamAsmit</p>
+            </div>
+            <div id="s-hdr-menu">
+              <svg
+                id="s-hdr-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"
+                ></path>
+              </svg>
+            </div>
+            <nav id="s-hdr-s-nvb">
+              <div id="hdr-svg-close-cnt">
+                <svg
+                  id="s-hdr-svg-close"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M16 18V20H5V18H16ZM21 11V13H3V11H21ZM19 4V6H8V4H19Z"
+                  ></path>
+                </svg>
+              </div>
+              <a href="#home" class="nv-els s-nv-els" id="nv-el-hme"> Home </a>
+              <a href="#about-me" class="nv-els s-nv-els" id="nv-el-abt">
+                About Me
+              </a>
+              <a href="#projects" class="nv-els s-nv-els" id="nv-el-prj">
+                Projects
+              </a>
+              <a href="#contact-me" class="nv-els s-nv-els" id="nv-el-ctc">
+                Contact Me
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="hero">
+      <div id="hero-cnt">
+        <div id="hero-lft">
+          <h1>UNDER CONSTRUCTION</h1>
+          <p>This section is under construction, please visit again</p>
+          <p>Loader has been disabled in update 0.6</p>
+        </div>
+        <div id="hero-rgt"></div>
       </div>
     </div>
 
@@ -101,6 +152,7 @@
       type="module"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EaselPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="./Src/Scripts/main-logic.js"></script>
   </body>

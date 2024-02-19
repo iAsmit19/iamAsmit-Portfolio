@@ -203,6 +203,7 @@ function theLoader() {
   loaderAnimation();
 }
 
+let headerNavBarCont = document.querySelector("#hdr-nv-cnt");
 let smallHeaderMenu = document.querySelector("#s-hdr-menu");
 let smallHeaderMenuClose = document.querySelector("#hdr-svg-close-cnt");
 let smallHeaderMenuToggle = false;
@@ -218,6 +219,8 @@ function smallHeader() {
     gsap.to(smallHeaderNavbar, {
       opacity: 1,
     });
+    headerNavBarCont.style['-webkit-backdrop-filter'] = 'none'
+    headerNavBarCont.style['backdrop-filter'] = 'none'
     gsap.to(body, {
       height: "100vh",
       overflowX: "hidden",
@@ -242,11 +245,14 @@ function smallHeader() {
         smallHeaderNavbar.style.width = "0%";
       },
     });
+    headerNavBarCont.style['-webkit-backdrop-filter'] = 'blur(60px)'
+    headerNavBarCont.style['backdrop-filter'] = 'blur(60px)'
     timeline.to(smallHeaderNavbar, {
       display: "none",
     });
     timeline.to(body, {
       height: "auto",
+      width: "auto",
       overflowX: "auto",
     });
     smallHeaderElements.forEach((element, index) => {
@@ -498,7 +504,7 @@ function theExecutioner() {
   theCursor();
   theHeader();
   // COMMENT TO STOP THE :::LOADER:::
-  // theLoader();
+  theLoader();
   theHeroSection();
 }
 

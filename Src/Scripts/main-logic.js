@@ -214,10 +214,9 @@ function smallHeader() {
     gsap.to(smallHeaderNavbar, {
       display: "flex",
     });
+    smallHeaderNavbar.style.width = "100%";
     gsap.to(smallHeaderNavbar, {
       opacity: 1,
-      width: "100%",
-      // duration: 0.1,
     });
     gsap.to(body, {
       height: "100vh",
@@ -239,8 +238,9 @@ function smallHeader() {
     let timeline = gsap.timeline();
     timeline.to(smallHeaderNavbar, {
       opacity: 0,
-      width: "0%",
-      // duration: 0,
+      onComplete: () => {
+        smallHeaderNavbar.style.width = "0%";
+      },
     });
     timeline.to(smallHeaderNavbar, {
       display: "none",

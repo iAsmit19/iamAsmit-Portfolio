@@ -8,22 +8,22 @@ let headerNavElements = document.querySelectorAll(".nv-els");
 function theCursor() {
   document.addEventListener("mousemove", (event) => {
     gsap.to(cursor, {
-      display: "block"
+      display: "block",
     });
     gsap.to(cursor, {
       top: event.pageY + "px",
-      left: event.pageX + "px"
+      left: event.pageX + "px",
     });
   });
   headerNavElements.forEach((element) => {
     element.addEventListener("mouseover", () => {
       gsap.to(cursor, {
-        scale: 0.5
+        scale: 0.5,
       });
     });
     element.addEventListener("mouseleave", () => {
       gsap.to(cursor, {
-        scale: 1
+        scale: 1,
       });
     });
   });
@@ -211,24 +211,27 @@ let smallHeaderElements = document.querySelectorAll(".s-nv-els");
 
 function smallHeader() {
   smallHeaderMenu.addEventListener("click", () => {
-    let timeline = gsap.timeline();
     gsap.to(smallHeaderNavbar, {
       display: "flex",
     });
     gsap.to(smallHeaderNavbar, {
       opacity: 1,
       width: "100%",
-      duration: 0.1,
+      // duration: 0.1,
     });
     gsap.to(body, {
       height: "100vh",
       overflowX: "hidden",
     });
     smallHeaderElements.forEach((element, index) => {
-      gsap.to(element, {
-        opacity: 1
-        // duration: 0.5
-      }, index * 1.5);
+      gsap.to(
+        element,
+        {
+          opacity: 1,
+          // duration: 0.5
+        },
+        index * 1.5
+      );
     });
   });
 
@@ -237,7 +240,7 @@ function smallHeader() {
     timeline.to(smallHeaderNavbar, {
       opacity: 0,
       width: "0%",
-      duration: 0.1,
+      // duration: 0,
     });
     timeline.to(smallHeaderNavbar, {
       display: "none",
@@ -247,18 +250,248 @@ function smallHeader() {
       overflowX: "auto",
     });
     smallHeaderElements.forEach((element, index) => {
-      gsap.to(element, {
-        opacity: 0
-      }, index * 1.5);
+      gsap.to(
+        element,
+        {
+          opacity: 0,
+        },
+        index * 1.5
+      );
     });
   });
 }
 
+function headerDecodeTextEffect() {
+  var text = document.getElementsByClassName("hdr-dcd-tx")[0];
+  // debug with
+  // console.log(text, text.children.length);
+
+  // assign the placeholder array its places
+  var state = [];
+  for (var i = 0, j = text.children.length; i < j; i++) {
+    text.children[i].classList.remove("state-1", "state-2", "state-3");
+    state[i] = i;
+  }
+
+  // shuffle the array to get new sequences each time
+  var shuffled = shuffle(state);
+
+  for (var i = 0, j = shuffled.length; i < j; i++) {
+    var child = text.children[shuffled[i]];
+    classes = child.classList;
+
+    // fire the first one at random times
+    var state1Time = Math.round(Math.random() * (2000 - 300)) + 50;
+    if (classes.contains("hdr-text-animation")) {
+      setTimeout(firstStages.bind(null, child), state1Time);
+    }
+  }
+}
+
+// send the node for later .state changes
+function firstStages(child) {
+  if (child.classList.contains("state-2")) {
+    child.classList.add("state-3");
+  } else if (child.classList.contains("state-1")) {
+    child.classList.add("state-2");
+  } else if (!child.classList.contains("state-1")) {
+    child.classList.add("state-1");
+    setTimeout(secondStages.bind(null, child), 100);
+  }
+}
+function secondStages(child) {
+  if (child.classList.contains("state-1")) {
+    child.classList.add("state-2");
+    setTimeout(thirdStages.bind(null, child), 100);
+  } else if (!child.classList.contains("state-1")) {
+    child.classList.add("state-1");
+  }
+}
+function thirdStages(child) {
+  if (child.classList.contains("state-2")) {
+    child.classList.add("state-3");
+  }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+function smallHeaderDecodeTextEffect() {
+  var text = document.getElementsByClassName("s-hdr-dcd-tx")[0];
+  // debug with
+  // console.log(text, text.children.length);
+
+  // assign the placeholder array its places
+  var state = [];
+  for (var i = 0, j = text.children.length; i < j; i++) {
+    text.children[i].classList.remove("state-1", "state-2", "state-3");
+    state[i] = i;
+  }
+
+  // shuffle the array to get new sequences each time
+  var shuffled = shuffle(state);
+
+  for (var i = 0, j = shuffled.length; i < j; i++) {
+    var child = text.children[shuffled[i]];
+    classes = child.classList;
+
+    // fire the first one at random times
+    var state1Time = Math.round(Math.random() * (2000 - 300)) + 50;
+    if (classes.contains("s-hdr-text-animation")) {
+      setTimeout(firstStages.bind(null, child), state1Time);
+    }
+  }
+}
+
+// send the node for later .state changes
+function firstStages(child) {
+  if (child.classList.contains("state-2")) {
+    child.classList.add("state-3");
+  } else if (child.classList.contains("state-1")) {
+    child.classList.add("state-2");
+  } else if (!child.classList.contains("state-1")) {
+    child.classList.add("state-1");
+    setTimeout(secondStages.bind(null, child), 100);
+  }
+}
+function secondStages(child) {
+  if (child.classList.contains("state-1")) {
+    child.classList.add("state-2");
+    setTimeout(thirdStages.bind(null, child), 100);
+  } else if (!child.classList.contains("state-1")) {
+    child.classList.add("state-1");
+  }
+}
+function thirdStages(child) {
+  if (child.classList.contains("state-2")) {
+    child.classList.add("state-3");
+  }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 function theHeader() {
   smallHeader();
+  headerDecodeTextEffect();
+  setInterval(function () {
+    headerDecodeTextEffect();
+  }, 10000);
+  smallHeaderDecodeTextEffect();
+  setInterval(function () {
+    smallHeaderDecodeTextEffect();
+  }, 10000);
+}
+
+function decodeTextEffect() {
+  var text = document.getElementsByClassName("dcd-tx")[0];
+  // debug with
+  // console.log(text, text.children.length);
+
+  // assign the placeholder array its places
+  var state = [];
+  for (var i = 0, j = text.children.length; i < j; i++) {
+    text.children[i].classList.remove("state-1", "state-2", "state-3");
+    state[i] = i;
+  }
+
+  // shuffle the array to get new sequences each time
+  var shuffled = shuffle(state);
+
+  for (var i = 0, j = shuffled.length; i < j; i++) {
+    var child = text.children[shuffled[i]];
+    classes = child.classList;
+
+    // fire the first one at random times
+    var state1Time = Math.round(Math.random() * (2000 - 300)) + 50;
+    if (classes.contains("text-animation")) {
+      setTimeout(firstStages.bind(null, child), state1Time);
+    }
+  }
+}
+
+// send the node for later .state changes
+function firstStages(child) {
+  if (child.classList.contains("state-2")) {
+    child.classList.add("state-3");
+  } else if (child.classList.contains("state-1")) {
+    child.classList.add("state-2");
+  } else if (!child.classList.contains("state-1")) {
+    child.classList.add("state-1");
+    setTimeout(secondStages.bind(null, child), 100);
+  }
+}
+function secondStages(child) {
+  if (child.classList.contains("state-1")) {
+    child.classList.add("state-2");
+    setTimeout(thirdStages.bind(null, child), 100);
+  } else if (!child.classList.contains("state-1")) {
+    child.classList.add("state-1");
+  }
+}
+function thirdStages(child) {
+  if (child.classList.contains("state-2")) {
+    child.classList.add("state-3");
+  }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 }
 
 function theHeroSection() {
+  // decodeTextEffect();
+  decodeTextEffect();
+  setInterval(function () {
+    decodeTextEffect();
+  }, 10000);
 }
 
 function theExecutioner() {

@@ -76,8 +76,8 @@
   --nv-c-hv-d: #ffffff;
   --ft-c-d: #d6d6d6;
   --ft-c-hv-d: #ffffff;
-  --hdr-d: #232323b8;
-  --s-hdr-d: #1212128e;
+  --hdr-d: #000000;
+  --s-hdr-d: #00000054;
   --p-nav-d: #38383890;
   --sec1-d: #000000;
   --btn-d: #222222;
@@ -129,7 +129,7 @@ body {
   color: var(--ft-c);
   min-height: 100vh;
   /* COMMENT IT TO STOP THE :::LOADER::: */
-  height: 100vh;
+  /* height: 100vh; */
   font-family: "Montserrat";
   position: relative;
   overflow: hidden;
@@ -166,29 +166,6 @@ body {
   z-index: 999999;
 }
 
-.s-scr-dis {
-  color: var(--ft-c-hv);
-  height: 90vh;
-  width: 99vw;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.s-scr-dis h1 {
-  font-size: 5vw;
-  text-align: center;
-}
-
-.s-scr-dis p {
-  font-size: 2.5vw;
-  text-align: center;
-}
-
 #ldr {
   background-color: var(--bg);
   height: 100vh;
@@ -196,7 +173,7 @@ body {
   opacity: 0;
   display: flex;
   /* " UNCOMMENT IT " TO STOP THE :::LOADER::: */
-  /* display: none; */
+  display: none;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -281,29 +258,15 @@ body {
   background-color: var(--bg);
 }
 
-.uc-dis {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#uc-dis-anm {
-  height: 10vh;
-}
-
 #hdr-nv {
-  /* background-color: var(--hdr); */
   height: 7vh;
-  width: 99vw;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  /* overflow: hidden; */
   user-select: none;
+  z-index: 999;
 }
 
 #hdr-nv-cnt {
@@ -313,9 +276,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding-inline: 2vw; */
   position: relative;
-  /* overflow: hidden; */
+}
+
+#hdr-anm {
+  border-radius: 100%;
+  background: linear-gradient(rgb(111, 0, 255), rgb(255, 0, 93));
+  height: 4vh;
+  width: 4vh;
+  /* filter: blur(30px); */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  justify-self: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 #hdr-lg {
@@ -454,6 +431,10 @@ body {
   white-space: nowrap;
 }
 
+.hdr-imp {
+  z-index: 9999999999;
+}
+
 #hdr-svg-close-cnt {
   /* background-color: grey; */
   color: var(--ft-c-hv);
@@ -520,6 +501,42 @@ body {
       width: 0;
     }
   }
+}
+
+#pill-hdr {
+  height: 6vh;
+  width: 100%;
+  position: fixed;
+  top: 2vh;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#pill-hdr-cnt {
+  border: 0.1px solid var(--skls-tbs);
+  border-radius: 100px;
+  background-color: var(--p-nav);
+  height: 100%;
+  width: 35%;
+  position: absolute;
+  opacity: 0;
+  /* display: none; */
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#pill-hdr-nvb {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #hero {
@@ -670,6 +687,21 @@ body {
   filter: drop-shadow(0px 0px 10px var(--act));
 }
 
+#intro {
+  height: 120vh;
+  width: 100%;
+}
+
+#intro-cnt {
+  background-color: var(--bg);
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+/* The Screen Administration */
 /* 4k Screens */
 @media (min-width: 1441px) {
   #ldr-mn-txt h1 {
@@ -687,6 +719,10 @@ body {
   .nv-els {
     font-size: 1.1rem;
   }
+
+  #pill-hdr-cnt {
+    width: 30%;
+  }
 }
 
 /* Laptop Screens (Large) */
@@ -701,6 +737,10 @@ body {
 
   .nv-els {
     font-size: 1rem;
+  }
+
+  #pill-hdr-cnt {
+    width: 40%;
   }
 
   #hero-anm {
@@ -731,6 +771,10 @@ body {
     font-size: 1rem;
   }
 
+  #pill-hdr-cnt {
+    width: 50%;
+  }
+
   #hero-anm {
     filter: blur(100px);
   }
@@ -759,6 +803,10 @@ body {
     font-size: 0.9rem;
   }
 
+  #pill-hdr-cnt {
+    width: 60%;
+  }
+
   #hero-anm {
     filter: blur(80px);
   }
@@ -779,6 +827,10 @@ body {
 
 /* Tablet Screens (Small) */
 @media (max-width: 619px) and (min-width: 424px) {
+  * {
+    cursor: default;
+  }
+
   #crsr {
     opacity: 0;
   }
@@ -805,6 +857,10 @@ body {
 
   #s-hdr-nv-cnt {
     display: flex;
+  }
+
+  #pill-hdr-cnt {
+    display: none !important;
   }
 
   #hero {
@@ -870,6 +926,10 @@ body {
     display: flex;
   }
 
+  #pill-hdr-cnt {
+    display: none !important;
+  }
+
   #hero {
     height: 50vh;
   }
@@ -931,6 +991,10 @@ body {
     display: flex;
   }
 
+  #pill-hdr-cnt {
+    display: none !important;
+  }
+
   #hero {
     height: 50vh;
   }
@@ -990,6 +1054,10 @@ body {
 
   #s-hdr-nv-cnt {
     display: flex;
+  }
+
+  #pill-hdr-cnt {
+    display: none !important;
   }
 
   #hero {

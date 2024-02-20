@@ -20,10 +20,16 @@ function theCursor() {
       gsap.to(cursor, {
         scale: 0.5,
       });
+      gsap.to(headerAnim, {
+        filter: "blur(50px)",
+      });
     });
     element.addEventListener("mouseleave", () => {
       gsap.to(cursor, {
         scale: 1,
+      });
+      gsap.to(headerAnim, {
+        filter: "blur(30px)",
       });
     });
   });
@@ -219,8 +225,8 @@ function smallHeader() {
     gsap.to(smallHeaderNavbar, {
       opacity: 1,
     });
-    headerNavBarCont.style['-webkit-backdrop-filter'] = 'none'
-    headerNavBarCont.style['backdrop-filter'] = 'none'
+    headerNavBarCont.style["-webkit-backdrop-filter"] = "none";
+    headerNavBarCont.style["backdrop-filter"] = "none";
     gsap.to(body, {
       height: "100vh",
       overflowX: "hidden",
@@ -245,8 +251,8 @@ function smallHeader() {
         smallHeaderNavbar.style.width = "0%";
       },
     });
-    headerNavBarCont.style['-webkit-backdrop-filter'] = 'blur(60px)'
-    headerNavBarCont.style['backdrop-filter'] = 'blur(60px)'
+    headerNavBarCont.style["-webkit-backdrop-filter"] = "blur(60px)";
+    headerNavBarCont.style["backdrop-filter"] = "blur(60px)";
     timeline.to(smallHeaderNavbar, {
       display: "none",
     });
@@ -409,6 +415,67 @@ function shuffle(array) {
   return array;
 }
 
+let headerAnim = document.querySelector("#hdr-anm");
+
+function headerAnimation() {
+  headerNavBarCont.addEventListener("mouseover", () => {
+    gsap.to(headerAnim, {
+      opacity: 1,
+    });
+  });
+  headerNavBarCont.addEventListener("mouseleave", () => {
+    gsap.to(headerAnim, {
+      opacity: 0,
+    });
+  });
+  headerNavBarCont.addEventListener("mousemove", (event) => {
+    gsap.to(headerAnim, {
+      top: event.pageY,
+      left: event.pageX,
+    });
+  });
+}
+
+let pillNavbar = document.querySelector("#pill-hdr");
+let pillNavbarCont = document.querySelector("#pill-hdr-cnt");
+let scrollThresh = 100;
+
+function pillNavbarLogic() {
+  let scrollPosition =
+    window.scrollY || document.documentElement.scrollTop < 100;
+  if (scrollPosition > scrollThresh) {
+    gsap.to(pillNavbar, {
+      display: "flex"
+    });
+    gsap.to(pillNavbarCont, {
+      display: "flex",
+      duration: 0.1,
+    });
+    gsap.to(pillNavbarCont, {
+      opacity: 1,
+      duration: 0.2,
+    });
+  } else if (scrollPosition < scrollThresh) {
+    gsap.to(pillNavbar, {
+      display: "none"
+    });
+    gsap.to(pillNavbarCont, {
+      display: "none",
+      duration: 0.1,
+    });
+    gsap.to(pillNavbarCont, {
+      opacity: 0,
+      duration: 0.2,
+    });
+  }
+}
+
+function pillNavbarExecutioner() {
+  document.addEventListener("scroll", function () {
+    pillNavbarLogic();
+  });
+}
+
 function theHeader() {
   smallHeader();
   headerDecodeTextEffect();
@@ -419,6 +486,8 @@ function theHeader() {
   setInterval(function () {
     smallHeaderDecodeTextEffect();
   }, 10000);
+  headerAnimation();
+  pillNavbarExecutioner();
 }
 
 function decodeTextEffect() {
@@ -504,7 +573,7 @@ function theExecutioner() {
   theCursor();
   theHeader();
   // COMMENT TO STOP THE :::LOADER:::
-  theLoader();
+  // theLoader();
   theHeroSection();
 }
 

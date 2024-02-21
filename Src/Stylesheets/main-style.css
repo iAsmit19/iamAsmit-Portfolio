@@ -129,7 +129,7 @@ body {
   color: var(--ft-c);
   min-height: 100vh;
   /* COMMENT IT TO STOP THE :::LOADER::: */
-  /* height: 100vh; */
+  height: 100vh;
   font-family: "Montserrat";
   position: relative;
   overflow: hidden;
@@ -173,7 +173,7 @@ body {
   opacity: 0;
   display: flex;
   /* " UNCOMMENT IT " TO STOP THE :::LOADER::: */
-  display: none;
+  /* display: none; */
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -260,7 +260,7 @@ body {
 
 #hdr-nv {
   height: 7vh;
-  width: 100vw;
+  width: 99.5vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -284,7 +284,7 @@ body {
   background: linear-gradient(rgb(111, 0, 255), rgb(255, 0, 93));
   height: 4vh;
   width: 4vh;
-  /* filter: blur(30px); */
+  filter: blur(30px);
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;

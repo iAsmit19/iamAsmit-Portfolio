@@ -95,7 +95,7 @@ function loaderAnimation() {
       {
         opacity: 1,
       },
-      index * 0.3
+      index * 0.2
     );
   });
   loaderMainText1Spans.forEach((element, index) => {
@@ -103,17 +103,7 @@ function loaderAnimation() {
       element,
       {
         opacity: 0,
-        delay: 1.5,
-      },
-      index * 0.3
-    );
-  });
-  loaderMainText2Spans.forEach((element, index) => {
-    mainTextTimeline.to(
-      element,
-      {
-        opacity: 1,
-        delay: 4,
+        delay: 1.4,
       },
       index * 0.2
     );
@@ -122,8 +112,18 @@ function loaderAnimation() {
     mainTextTimeline.to(
       element,
       {
+        opacity: 1,
+        delay: 3,
+      },
+      index * 0.1
+    );
+  });
+  loaderMainText2Spans.forEach((element, index) => {
+    mainTextTimeline.to(
+      element,
+      {
         opacity: 0,
-        delay: 6.5,
+        delay: 6,
       },
       index * 0.2
     );
@@ -133,17 +133,17 @@ function loaderAnimation() {
       element,
       {
         opacity: 1,
+        delay: 8,
+      },
+      index * 0.1
+    );
+  });
+  loaderMainText3Spans.forEach((element, index) => {
+    mainTextTimeline.to(
+      element,
+      {
+        opacity: 0,
         delay: 10,
-      },
-      index * 0.2
-    );
-  });
-  loaderMainText3Spans.forEach((element, index) => {
-    mainTextTimeline.to(
-      element,
-      {
-        opacity: 0,
-        delay: 13,
       },
       index * 0.2
     );
@@ -155,12 +155,15 @@ function loaderAnimation() {
   mainTextTimeline.to(loader, {
     display: "none",
   });
+  mainTextTimeline.to(rootContainer, {
+    opacity: 1,
+  });
   mainTextTimeline.to(body, {
     height: "auto",
     overflow: "auto",
   });
-  mainTextTimeline.to(rootContainer, {
-    opacity: 1,
+  headerNavElements.forEach((element) => {
+    
   });
 
   let subText = "loading your experience...";
@@ -194,7 +197,7 @@ function loaderAnimation() {
     subTimeline.to(
       element,
       {
-        color: "var(--ft-c-hv)",
+        color: "var(--ft-c)",
         ease: "power2.inOut",
         opacity: 1,
         textShadow: "none",
@@ -573,7 +576,7 @@ function theExecutioner() {
   theCursor();
   theHeader();
   // COMMENT TO STOP THE :::LOADER:::
-  // theLoader();
+  theLoader();
   theHeroSection();
 }
 

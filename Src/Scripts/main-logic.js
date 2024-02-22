@@ -2,8 +2,37 @@
     The Castle's Towers
 */
 
+// theCursor
 let cursor = document.querySelector("#crsr");
-let headerNavElements = document.querySelectorAll(".nv-els");
+let navElements = document.querySelectorAll(".nv-els");
+
+// theLoader
+let body = document.querySelector("body");
+let loader = document.querySelector("#ldr");
+let loaderMainText1 = document.querySelector("#ldr-mn-1");
+let loaderMainText2 = document.querySelector("#ldr-mn-2");
+let loaderMainText3 = document.querySelector("#ldr-mn-3");
+let loaderSubText = document.querySelector("#ldr-sb-txt p");
+let rootContainer = document.querySelector("#rt");
+let headerNavElements = document.querySelectorAll(".hdr-nv-els");
+let heroSectionCont = document.querySelector("#hero-cnt");
+let heroAnimation = document.querySelector("#hero-anm");
+
+// smallHeader
+let headerNavBarCont = document.querySelector("#hdr-nv-cnt");
+let smallHeaderMenu = document.querySelector("#s-hdr-menu");
+let smallHeaderMenuClose = document.querySelector("#hdr-svg-close-cnt");
+let smallHeaderMenuToggle = false;
+let smallHeaderNavbar = document.querySelector("#s-hdr-s-nvb");
+let smallHeaderElements = document.querySelectorAll(".s-nv-els");
+
+// headerAnim
+let headerAnim = document.querySelector("#hdr-anm");
+
+// pillNavbarLogic
+let pillNavbar = document.querySelector("#pill-hdr");
+let pillNavbarCont = document.querySelector("#pill-hdr-cnt");
+let scrollThresh = 100;
 
 function theCursor() {
   document.addEventListener("mousemove", (event) => {
@@ -15,7 +44,7 @@ function theCursor() {
       left: event.pageX + "px",
     });
   });
-  headerNavElements.forEach((element) => {
+  navElements.forEach((element) => {
     element.addEventListener("mouseover", () => {
       gsap.to(cursor, {
         scale: 0.5,
@@ -29,19 +58,11 @@ function theCursor() {
         scale: 1,
       });
       gsap.to(headerAnim, {
-        filter: "blur(30px)",
+        filter: "blur(15px)",
       });
     });
   });
 }
-
-let body = document.querySelector("body");
-let loader = document.querySelector("#ldr");
-let loaderMainText1 = document.querySelector("#ldr-mn-1");
-let loaderMainText2 = document.querySelector("#ldr-mn-2");
-let loaderMainText3 = document.querySelector("#ldr-mn-3");
-let loaderSubText = document.querySelector("#ldr-sb-txt p");
-let rootContainer = document.querySelector("#rt");
 
 function loaderAnimation() {
   let mainText1 = "Design";
@@ -83,7 +104,10 @@ function loaderAnimation() {
   let loaderMainText3Spans = document.querySelectorAll(".mn-txt-3");
 
   let mainTextTimeline = gsap.timeline({
-    ease: "power1.inOut",
+    ease: "power2.inOut",
+  });
+  mainTextTimeline.to(rootContainer, {
+    opacity: 0,
   });
   mainTextTimeline.to(loader, {
     opacity: 1,
@@ -113,7 +137,7 @@ function loaderAnimation() {
       element,
       {
         opacity: 1,
-        delay: 3,
+        delay: 2,
       },
       index * 0.1
     );
@@ -123,9 +147,9 @@ function loaderAnimation() {
       element,
       {
         opacity: 0,
-        delay: 6,
+        delay: 5,
       },
-      index * 0.2
+      index * 0.1
     );
   });
   loaderMainText3Spans.forEach((element, index) => {
@@ -133,7 +157,7 @@ function loaderAnimation() {
       element,
       {
         opacity: 1,
-        delay: 8,
+        delay: 7,
       },
       index * 0.1
     );
@@ -143,9 +167,9 @@ function loaderAnimation() {
       element,
       {
         opacity: 0,
-        delay: 10,
+        delay: 9,
       },
-      index * 0.2
+      index * 0.1
     );
   });
   mainTextTimeline.to(loader, {
@@ -155,15 +179,19 @@ function loaderAnimation() {
   mainTextTimeline.to(loader, {
     display: "none",
   });
-  mainTextTimeline.to(rootContainer, {
-    opacity: 1,
-  });
   mainTextTimeline.to(body, {
     height: "auto",
     overflow: "auto",
   });
-  headerNavElements.forEach((element) => {
-    
+  mainTextTimeline.to(rootContainer, {
+    opacity: 1,
+    duration: 2,
+  });
+  mainTextTimeline.from(headerNavBarCont, {
+    opacity: 0,
+  });
+  mainTextTimeline.from(heroSectionCont, {
+    opacity: 0,
   });
 
   let subText = "loading your experience...";
@@ -211,13 +239,6 @@ function loaderAnimation() {
 function theLoader() {
   loaderAnimation();
 }
-
-let headerNavBarCont = document.querySelector("#hdr-nv-cnt");
-let smallHeaderMenu = document.querySelector("#s-hdr-menu");
-let smallHeaderMenuClose = document.querySelector("#hdr-svg-close-cnt");
-let smallHeaderMenuToggle = false;
-let smallHeaderNavbar = document.querySelector("#s-hdr-s-nvb");
-let smallHeaderElements = document.querySelectorAll(".s-nv-els");
 
 function smallHeader() {
   smallHeaderMenu.addEventListener("click", () => {
@@ -418,8 +439,6 @@ function shuffle(array) {
   return array;
 }
 
-let headerAnim = document.querySelector("#hdr-anm");
-
 function headerAnimation() {
   headerNavBarCont.addEventListener("mouseover", () => {
     gsap.to(headerAnim, {
@@ -439,16 +458,12 @@ function headerAnimation() {
   });
 }
 
-let pillNavbar = document.querySelector("#pill-hdr");
-let pillNavbarCont = document.querySelector("#pill-hdr-cnt");
-let scrollThresh = 100;
-
 function pillNavbarLogic() {
   let scrollPosition =
     window.scrollY || document.documentElement.scrollTop < 100;
   if (scrollPosition > scrollThresh) {
     gsap.to(pillNavbar, {
-      display: "flex"
+      display: "flex",
     });
     gsap.to(pillNavbarCont, {
       display: "flex",
@@ -460,7 +475,7 @@ function pillNavbarLogic() {
     });
   } else if (scrollPosition < scrollThresh) {
     gsap.to(pillNavbar, {
-      display: "none"
+      display: "none",
     });
     gsap.to(pillNavbarCont, {
       display: "none",

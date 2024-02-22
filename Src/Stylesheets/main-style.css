@@ -112,7 +112,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
+  /* cursor: none; */
   /* transition: all ease-in-out 200ms; */
 }
 
@@ -127,7 +127,7 @@ body {
 body {
   background-color: var(--bg);
   color: var(--ft-c);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /* COMMENT IT TO STOP THE :::LOADER::: */
   height: 100vh;
   font-family: "Montserrat";
@@ -256,6 +256,8 @@ body {
 
 #rt {
   background-color: var(--bg);
+  height: 100%;
+  width: 100%;
 }
 
 #hdr-nv {
@@ -284,7 +286,7 @@ body {
   background: linear-gradient(rgb(111, 0, 255), rgb(255, 0, 93));
   height: 4vh;
   width: 4vh;
-  filter: blur(30px);
+  filter: blur(15px);
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0;
@@ -292,7 +294,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 #hdr-lg {
@@ -542,7 +544,7 @@ body {
 #hero {
   /* background-color: var(--act); */
   height: 93vh;
-  width: auto;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -598,7 +600,7 @@ body {
   text-align: start;
   font-family: "Montserrat SB";
   white-space: nowrap;
-  z-index: -1 !important;
+  /* z-index: -1 !important; */
 }
 
 .space {
